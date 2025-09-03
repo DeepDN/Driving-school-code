@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(222 84% 5%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(222 84% 5%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(222 84% 5%);
+  --primary: hsl(221 83% 35%);
+  --primary-foreground: hsl(210 40% 98%);
+  --secondary: hsl(24 95% 53%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(210 40% 96%);
+  --muted-foreground: hsl(215 16% 47%);
+  --accent: hsl(45 93% 56%);
+  --accent-foreground: hsl(222 84% 5%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --border: hsl(214 32% 91%);
+  --input: hsl(214 32% 91%);
+  --ring: hsl(221 83% 35%);
+  --radius: 0.75rem;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', system-ui, sans-serif;
+}
+
+.dark {
+  --background: hsl(222 84% 5%);
+  --foreground: hsl(210 40% 98%);
+  --card: hsl(222 84% 5%);
+  --card-foreground: hsl(210 40% 98%);
+  --popover: hsl(222 84% 5%);
+  --popover-foreground: hsl(210 40% 98%);
+  --primary: hsl(221 83% 45%);
+  --primary-foreground: hsl(210 40% 98%);
+  --secondary: hsl(24 95% 53%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(217 32% 17%);
+  --muted-foreground: hsl(215 20% 65%);
+  --accent: hsl(45 93% 56%);
+  --accent-foreground: hsl(222 84% 5%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --border: hsl(217 32% 17%);
+  --input: hsl(217 32% 17%);
+  --ring: hsl(221 83% 45%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  .marathi-text {
+    font-family: var(--font-devanagari);
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .hero-bg {
+    background: linear-gradient(135deg, hsl(221 83% 35%) 0%, hsl(24 95% 53%) 100%);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .service-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: hsl(24 95% 53%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-blur {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid hsl(214 32% 91%);
+  }
+  
+  .counter {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, hsl(221 83% 35%), hsl(24 95% 53%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  @media (max-width: 768px) {
+    .counter {
+      font-size: 2rem;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .floating-btn {
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(50px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes steering {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  50% { 
+    transform: rotate(15deg); 
+  }
+}
+
+@keyframes carMove {
+  0% { 
+    transform: translateX(-100px); 
+  }
+  100% { 
+    transform: translateX(100px); 
+  }
+}
+
+@keyframes roadLines {
+  0% { 
+    transform: translateX(-20px); 
+  }
+  100% { 
+    transform: translateX(20px); 
+  }
+}
+
+.animate-steering {
+  animation: steering 4s ease-in-out infinite;
+}
+
+.animate-car-move {
+  animation: carMove 8s ease-in-out infinite;
+}
+
+.animate-road-lines {
+  animation: roadLines 2s linear infinite;
+}
